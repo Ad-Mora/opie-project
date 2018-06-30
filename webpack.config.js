@@ -1,7 +1,7 @@
 const path = require('path');
 
 const config = {
-  entry: './src/react-routes.js',
+  entry: './src/main.jsx',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'public')

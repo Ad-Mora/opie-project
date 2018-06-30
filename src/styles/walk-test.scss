@@ -1,6 +1,4 @@
 .walk-test-page-container {
-  font-family: helvetica;
-  background-color: whitesmoke;
   height: 100vh;
   padding-left: 20px;
 
@@ -30,6 +28,11 @@
     }
   }
 
+  .error-msg {
+    color: red;
+    margin-bottom: 10px;
+  }
+
   .button-block {
     margin-bottom: 20px;
 
@@ -39,7 +42,7 @@
       background-color: #007BFF;
       color: white;
       font-size: 15px;
-      line-height: 30px;
+      line-height: 28px;
       border: none;
       border-radius: 8px;
       outline: none;
@@ -62,6 +65,7 @@
 
   .summary {
     width: 500px;
+    line-height: 18px;
   }
 
 }
