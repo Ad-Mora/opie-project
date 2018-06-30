@@ -1,15 +1,16 @@
 import React from 'react';
 import NavBar from './NavBar';
+import '../styles/welcome.scss';
+import { Link } from 'react-router-dom';
 
 export default class WelcomePage extends React.Component {
   render () {
     return (
       <div className='welcome-page-container'>
         <NavBar />
-        {/* <h1 className='welcome-header'>Welcome to OPIE!</h1>
-        <p className='subtext'>Would you like to conduct a new test, or view existing patients?</p>
-        <button className='option-button'>Conduct a new test</button>
-        <button className='option-button'>View patient records</button> */}
+        <h1 className='welcome-header'>Welcome to OPIE!</h1>
+        <Link to='/' className='option-button'>Conduct a new test</Link>
+        <Link to='/' className='option-button'>View patient records</Link>
       </div>
     );
   }
