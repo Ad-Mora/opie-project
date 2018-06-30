@@ -9,8 +9,8 @@ export default class WelcomePage extends React.Component {
       <div className='welcome-page-container'>
         <NavBar />
         <h1 className='welcome-header'>Welcome to OPIE!</h1>
-        <Link to='/' className='option-button'>Conduct a new test</Link>
-        <Link to='/' className='option-button'>View patient records</Link>
+        <Link to='/walk-test' className='option-button'>Conduct a new test</Link>
+        <Link to='/records' className='option-button'>View patient records</Link>
       </div>
     );
   }

@@ -1,0 +1,67 @@
+.walk-test-page-container {
+  font-family: helvetica;
+  background-color: whitesmoke;
+  height: 100vh;
+  padding-left: 20px;
+
+  .walk-test-header {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .input-block {
+    margin-bottom: 20px;
+
+    .input-label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 10px;
+
+      .data-input {
+        margin-left: 10px;
+        height: 20px;
+        border-radius: 4px;
+        border: 1px solid #eeeeee;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  .button-block {
+    margin-bottom: 20px;
+
+    .form-button {
+      height: 30px;
+      width: 120px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 15px;
+      line-height: 30px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0062CC;
+      }
+    }
+
+    .form-button:last-child {
+      margin-left: 20px;
+    }
+  }
+
+  .summary-heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .summary {
+    width: 500px;
+  }
+
+}
