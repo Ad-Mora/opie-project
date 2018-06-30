@@ -9,7 +9,7 @@ import './styles/css-reset.scss';
 const rootRoute = (
   <BrowserRouter>
     <div>
-      <Route name='welcome' path='/' component={WelcomePage} />
+      <Route exact name='welcome' path='/' component={WelcomePage} />
       <Route name='walk-test' path='/walk-test' component={WalkTestPage} />
       <Route name='records' path='/records' component={RecordsPage} />
     </div>
