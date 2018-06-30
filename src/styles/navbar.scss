@@ -1,0 +1,27 @@
+.navbar-container {
+  width: 100%;
+  background-color: #007BFF;
+  color: white;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 60px;
+  font-family: helvetica;
+
+  .nav-link {
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+    height: 100%;
+    padding: 0 20px 0;
+    color: white;
+    text-decoration: none;
+    background-color: #007BFF;
+    text-align: center;
+    margin: 0;
+
+    &:hover {
+      background-color: #0062CC;
+    }
+  }
+}

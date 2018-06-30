@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Route, BrowserRouter } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
+import './styles/css-reset.scss';
 
 const rootRoute = (
   <BrowserRouter>
