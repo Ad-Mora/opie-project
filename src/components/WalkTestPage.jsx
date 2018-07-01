@@ -57,22 +57,29 @@ export default class WalkTestPage extends React.Component {
     }
 
     // gather together all input data
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
     let trialOne = document.getElementById('trial1').value;
     let trialTwo = document.getElementById('trial2').value;
     let trialThree = document.getElementById('trial3').value;
 
-    // check if submission is valid and all fields are filled in
+    // check if all fields are filled in
     const isFilledIn = firstName !== '' && lastName !== '' && trialOne !== '' && trialTwo !== '' && trialThree !== '';
+
+    // check if both name inputs only contain one name
+    const singleNames = firstName.split(' ').length === 1 && lastName.split(' ').length === 1;
 
     // cast trial times to numbers
     trialOne = Number(trialOne);
     trialTwo = Number(trialTwo);
     trialThree = Number(trialThree);
 
-    const isValid = isFilledIn && !isNaN(trialOne) && !isNaN(trialTwo) && !isNaN(trialThree);
+    // check that number values are actually numbers
+    const areNumbers = !isNaN(trialOne) && !isNaN(trialTwo) && !isNaN(trialThree);
 
+    const isValid = isFilledIn && singleNames && areNumbers;
+
+    // submit record
     if (isValid) {
       const summary = this.compileSummary(firstName, lastName, trialOne, trialTwo, trialThree);
 
