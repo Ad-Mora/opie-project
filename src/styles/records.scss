@@ -1,0 +1,62 @@
+.records-page-container {
+  height: 100vh;
+  padding-left: 20px;
+
+  .records-header {
+    text-align: center;
+    font-weight: 500;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .search-instruction {
+    margin-bottom: 10px;
+  }
+
+  .react-autosuggest__input {
+    height: 30px;
+    outline: none;
+    border: 1px solid #eeeedf;
+    border-bottom: none;
+    font-size: 16px;
+    padding-left: 8px;
+    width: 175px;
+    box-sizing: border-box;
+  }
+
+  .react-autosuggest__container {
+    position: absolute;
+  }
+
+  .suggestion-option {
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-bottom: none;
+    width: 175px;
+    padding-left: 8px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+  }
+
+  .record-container {
+    margin-top: 55px;
+    
+    .record-header {
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .record {
+      font-size: 16px;
+    }
+  }
+
+}

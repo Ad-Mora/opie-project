@@ -2,7 +2,7 @@ const express = require('express');
 const PORT = 3000;
 const app = express();
 const path = require('path');
-const validPaths = ['/', '/walk-test', 'view-records'];
+const validPaths = ['/', '/walk-test', '/records'];
 
 app.use(express.static('public'));
 
