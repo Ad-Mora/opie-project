@@ -9,14 +9,17 @@ router.get('/patients', async (req, res) => {
   const names = name.split(' ');
   let query = null;
 
+  // all queries are case insensitive
   if (names.length === 1) {
     // find first names that start with the current query
-    const regExp = new RegExp('^' + names[0]);
+    const regExp = new RegExp('^' + names[0], 'i');
     query = { firstName: regExp };
   } else if (names.length === 2) {
     // find names that match the first name, and start with the second name in the query
-    const regExp = new RegExp('^' + names[1]);
-    query = { firstName: names[0], lastName: regExp };
+    const firstNameRegExp = new RegExp('^' + names[0] + '$', 'i');
+    const lastNameRegExp = new RegExp('^' + names[1], 'i');
+
+    query = { firstName: firstNameRegExp, lastName: lastNameRegExp };
   } else {
     // a proper request will have either one or two names in the query (first and last)
     return res.status(400).json({ message: 'Improper request for patient record' });

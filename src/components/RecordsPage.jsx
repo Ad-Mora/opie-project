@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/records.scss';
 import Autosuggest from 'react-autosuggest';
+import axios from 'axios';
 
 export default class RecordsPage extends React.Component {
   constructor (props) {
@@ -12,46 +13,34 @@ export default class RecordsPage extends React.Component {
       currentPatient: null
     };
 
-    this.dummySuggestions = [
-      {
-        name: 'Apple',
-        record: 'Apple record'
-      },
-      {
-        name: 'Banana',
-        record: 'Banana record'
-      },
-      {
-        name: 'Cherry',
-        record: 'Cherry record'
-      },
-      {
-        name: 'Grapefruit',
-        record: 'Grapefruit record'
-      },
-      {
-        name: 'Lemon',
-        record: 'Lemon record'
-      }
-    ];
-
-    this.getSuggestions = this.getSuggestions.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
   }
 
-  getSuggestions (value) {
-    return this.dummySuggestions;
-  }
-
   onChange (event, { newValue }) {
     this.setState({ value: newValue });
   }
 
-  onSuggestionsFetchRequested ({ value }) {
-    this.setState({ suggestions: this.getSuggestions(value) });
+  async onSuggestionsFetchRequested ({ value }) {
+    try {
+      const response = await axios.get('/api/patients', {
+        params: { name: value }
+      });
+      const names = response.data.patients;
+      const suggestions = names.map(name => {
+        return {
+          name: name.firstName + ' ' + name.lastName,
+          record: name.record
+        };
+      });
+
+      this.setState({ suggestions });
+    } catch (err) {
+      console.log(err);
+      this.setState({ suggestions: [] });
+    }
   }
 
   onSuggestionsClearRequested () {
