@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/walk-test.scss';
+import axios from 'axios';
 
 export default class WalkTestPage extends React.Component {
   constructor (props) {
@@ -16,6 +17,7 @@ export default class WalkTestPage extends React.Component {
     this.clearPatient = this.clearPatient.bind(this);
     this.invalidFormErrorMsg = 'Please enter appropriate values for all above fields before submitting';
     this.alreadySubmittedErrorMsg = 'You have already submitted a record for this patient';
+    this.errorSavingRecordMsg = 'Error saving record to database';
   }
 
   compileSummary (firstName, lastName, trialOne, trialTwo, trialThree) {
@@ -25,8 +27,7 @@ export default class WalkTestPage extends React.Component {
     speed = speed.toFixed(2);
     const name = firstName + ' ' + lastName;
 
-    return `${name} walked a distance of 10 meters in ${avgTime} seconds. This is a rate of
-      ${speed} meters per second.`;
+    return `${name} walked a distance of 10 meters in ${avgTime} seconds. This is a rate of ${speed} meters per second.`;
   }
 
   clearError () {
@@ -74,10 +75,18 @@ export default class WalkTestPage extends React.Component {
 
     if (isValid) {
       const summary = this.compileSummary(firstName, lastName, trialOne, trialTwo, trialThree);
-      this.setState({
-        summary,
-        submitted: true
-      });
+
+      axios.post('/api/patients', { firstName, lastName, record: summary })
+        .then(response => {
+          this.setState({
+            summary,
+            submitted: true
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          this.setState({ errorMsg: this.errorSavingRecordMsg });
+        });
     } else {
       this.setState({ errorMsg: this.invalidFormErrorMsg });
     }

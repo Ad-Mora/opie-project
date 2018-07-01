@@ -29,7 +29,10 @@ router.get('/patients', async (req, res) => {
         patients
       });
     })
-    .catch(err => res.status(500).json({message: `Error finding patients: ${err}`}));
+    .catch(err => {
+      console.log(err);
+      return res.status(500).json({message: `Error finding patients: ${err}`});
+    });
 });
 
 // add a patient record to the database
@@ -42,7 +45,10 @@ router.post('/patients', (req, res) => {
 
   PatientModel.create(patientData)
     .then(patient => res.status(200).json({ message: 'Successfully created patient record' }))
-    .catch(err => res.status(500).json({ message: `Error creating patient record: ${err}` }));
+    .catch(err => {
+      console.log(err);
+      return res.status(500).json({ message: `Error creating patient record: ${err}` });
+    });
 });
 
 module.exports = router;

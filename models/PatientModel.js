@@ -12,7 +12,7 @@ const PatientSchema = new Schema({
     trim: true,
     required: true
   },
-  recordSummary: {
+  record: {
     type: String,
     trim: true,
     required: true
