@@ -8,7 +8,7 @@ import NavBar from './components/NavBar';
 import './styles/default-styles.scss';
 import './styles/css-reset.scss';
 
-// pass in the current location into the nav bar
+// pass the current location into the nav bar
 const NavBarLocation = withRouter(props => <NavBar location={props.location.pathname} />);
 
 const rootRoute = (
