@@ -117,6 +117,7 @@ export default class WalkTestPage extends React.Component {
           <div>
             <p className='summary-heading'>Results Summary</p>
             <p className='summary'>{this.state.summary}</p>
+            <p className='confirmation-text'>This record has been successfully saved to our database.</p>
           </div>
         }
       </div>
